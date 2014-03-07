@@ -3,6 +3,8 @@ OnlineChat::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'session#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
