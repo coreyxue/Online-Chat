@@ -2,7 +2,9 @@ OnlineChat::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :dialogs, only: [:show]
+  resources :dialogs, only: [:show] do
+    resources :messages, only: [:new, :create]
+  end
   match '/dialogs/create/:id', to: 'dialogs#create'
 
   match '/signup', to: 'users#new'

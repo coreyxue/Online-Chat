@@ -3,3 +3,9 @@
 <%= @dialog.user1_id%>
 <%= @dialog.user2_id%>
 <% end %>
+<%if @messages %>
+<%for message in @messages%>
+	<br/><%= message.user_id%>
+	<br/><%= message.message%>
+<%end%>
+<% end %>

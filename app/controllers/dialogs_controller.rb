@@ -17,5 +17,6 @@ class DialogsController < ApplicationController
 
   def show
   	@dialog = Dialog.find_by_id(params[:id])
+  	@messages = @dialog.messages
   end
 end
