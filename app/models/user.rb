@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
+
+  has_many :dialogs,:foreign_key => 'user1_id'
+  #has_many :dialogs,:foreign_key => 'user2_id'
+  has_many :messages, :through => :dialogs
+
   has_secure_password
 
   before_save {|user| user.email=email.downcase}
